@@ -11,7 +11,7 @@ import com.atguigu.core.bean.QueryCondition;
  *
  * @author zhanglu
  * @email zhanglu@atguigu.com
- * @date 2020-05-27 19:59:36
+ * @date 2020-05-27 20:51:05
  */
 public interface CategoryService extends IService<CategoryEntity> {
 

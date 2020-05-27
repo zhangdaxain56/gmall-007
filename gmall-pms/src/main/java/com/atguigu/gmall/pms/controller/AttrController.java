@@ -13,34 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SkuInfoEntity;
-import com.atguigu.gmall.pms.service.SkuInfoService;
+import com.atguigu.gmall.pms.entity.AttrEntity;
+import com.atguigu.gmall.pms.service.AttrService;
 
 
 
 
 /**
- * sku信息
+ * 商品属性
  *
  * @author zhanglu
  * @email zhanglu@atguigu.com
  * @date 2020-05-27 20:51:06
  */
-@Api(tags = "sku信息 管理")
+@Api(tags = "商品属性 管理")
 @RestController
-@RequestMapping("pms/skuinfo")
-public class SkuInfoController {
+@RequestMapping("pms/attr")
+public class AttrController {
     @Autowired
-    private SkuInfoService skuInfoService;
+    private AttrService attrService;
 
     /**
      * 列表
      */
     @ApiOperation("分页查询(排序)")
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('pms:skuinfo:list')")
+    @PreAuthorize("hasAuthority('pms:attr:list')")
     public Resp<PageVo> list(QueryCondition queryCondition) {
-        PageVo page = skuInfoService.queryPage(queryCondition);
+        PageVo page = attrService.queryPage(queryCondition);
 
         return Resp.ok(page);
     }
@@ -50,12 +50,12 @@ public class SkuInfoController {
      * 信息
      */
     @ApiOperation("详情查询")
-    @GetMapping("/info/{skuId}")
-    @PreAuthorize("hasAuthority('pms:skuinfo:info')")
-    public Resp<SkuInfoEntity> info(@PathVariable("skuId") Long skuId){
-		SkuInfoEntity skuInfo = skuInfoService.getById(skuId);
+    @GetMapping("/info/{attrId}")
+    @PreAuthorize("hasAuthority('pms:attr:info')")
+    public Resp<AttrEntity> info(@PathVariable("attrId") Long attrId){
+		AttrEntity attr = attrService.getById(attrId);
 
-        return Resp.ok(skuInfo);
+        return Resp.ok(attr);
     }
 
     /**
@@ -63,9 +63,9 @@ public class SkuInfoController {
      */
     @ApiOperation("保存")
     @PostMapping("/save")
-    @PreAuthorize("hasAuthority('pms:skuinfo:save')")
-    public Resp<Object> save(@RequestBody SkuInfoEntity skuInfo){
-		skuInfoService.save(skuInfo);
+    @PreAuthorize("hasAuthority('pms:attr:save')")
+    public Resp<Object> save(@RequestBody AttrEntity attr){
+		attrService.save(attr);
 
         return Resp.ok(null);
     }
@@ -75,9 +75,9 @@ public class SkuInfoController {
      */
     @ApiOperation("修改")
     @PostMapping("/update")
-    @PreAuthorize("hasAuthority('pms:skuinfo:update')")
-    public Resp<Object> update(@RequestBody SkuInfoEntity skuInfo){
-		skuInfoService.updateById(skuInfo);
+    @PreAuthorize("hasAuthority('pms:attr:update')")
+    public Resp<Object> update(@RequestBody AttrEntity attr){
+		attrService.updateById(attr);
 
         return Resp.ok(null);
     }
@@ -87,9 +87,9 @@ public class SkuInfoController {
      */
     @ApiOperation("删除")
     @PostMapping("/delete")
-    @PreAuthorize("hasAuthority('pms:skuinfo:delete')")
-    public Resp<Object> delete(@RequestBody Long[] skuIds){
-		skuInfoService.removeByIds(Arrays.asList(skuIds));
+    @PreAuthorize("hasAuthority('pms:attr:delete')")
+    public Resp<Object> delete(@RequestBody Long[] attrIds){
+		attrService.removeByIds(Arrays.asList(attrIds));
 
         return Resp.ok(null);
     }

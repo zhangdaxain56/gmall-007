@@ -1,5 +1,5 @@
 server:
-  port: 88081
+  port: 8081
 
 spring:
   cloud:
@@ -22,3 +22,8 @@ spring:
     minEvictableIdleTimeMillis: 300000  #连接在连接池的最小生存时间（毫秒）
   redis:
     host: 192.168.182.128
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath*:/mapper/pms/*Mapper.xml

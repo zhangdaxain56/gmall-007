@@ -9,7 +9,7 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * sku销售属性&值
+ * 属性&属性分组关联
  * 
  * @author zhanglu
  * @email zhanglu@atguigu.com
@@ -17,8 +17,8 @@ import lombok.Data;
  */
 @ApiModel
 @Data
-@TableName("pms_sku_sale_attr_value")
-public class SkuSaleAttrValueEntity implements Serializable {
+@TableName("pms_attr_attrgroup_relation")
+public class AttrAttrgroupRelationEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,29 +28,19 @@ public class SkuSaleAttrValueEntity implements Serializable {
 	@ApiModelProperty(name = "id",value = "id")
 	private Long id;
 	/**
-	 * sku_id
+	 * 属性id
 	 */
-	@ApiModelProperty(name = "skuId",value = "sku_id")
-	private Long skuId;
-	/**
-	 * attr_id
-	 */
-	@ApiModelProperty(name = "attrId",value = "attr_id")
+	@ApiModelProperty(name = "attrId",value = "属性id")
 	private Long attrId;
 	/**
-	 * 销售属性名
+	 * 属性分组id
 	 */
-	@ApiModelProperty(name = "attrName",value = "销售属性名")
-	private String attrName;
+	@ApiModelProperty(name = "attrGroupId",value = "属性分组id")
+	private Long attrGroupId;
 	/**
-	 * 销售属性值
+	 * 属性组内排序
 	 */
-	@ApiModelProperty(name = "attrValue",value = "销售属性值")
-	private String attrValue;
-	/**
-	 * 顺序
-	 */
-	@ApiModelProperty(name = "attrSort",value = "顺序")
+	@ApiModelProperty(name = "attrSort",value = "属性组内排序")
 	private Integer attrSort;
 
 }

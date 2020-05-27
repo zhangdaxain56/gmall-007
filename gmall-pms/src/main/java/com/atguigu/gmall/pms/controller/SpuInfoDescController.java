@@ -24,7 +24,7 @@ import com.atguigu.gmall.pms.service.SpuInfoDescService;
  *
  * @author zhanglu
  * @email zhanglu@atguigu.com
- * @date 2020-05-27 19:59:36
+ * @date 2020-05-27 20:51:05
  */
 @Api(tags = "spu信息介绍 管理")
 @RestController
